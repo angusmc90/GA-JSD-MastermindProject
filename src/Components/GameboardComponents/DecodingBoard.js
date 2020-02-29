@@ -82,20 +82,13 @@ function DecodingBoard(props) {
     let closeMatches = 0;
     // to count the number of matches
     for (let i = 0; i < winArr.length; i += 1) {
-      if (winArrDuex[i] === thisGuessArr[i]) {
+      let splicePos = winArrDuex.indexOf(thisGuessArr[i]);
+      if (thisGuessArr[i] === winArrDuex[i]) {
         matches += 1;
         winArrDuex.splice(i, 1, "emptyWin");
-        thisGuessArr.splice(i, 1, "emptyGuess"); // clear out guess array before second loop
-      }
-    }
-    // to count the number of close matches
-    for (let i = 0; i < winArr.length; i += 1) {
-      let splicePos = winArrDuex.indexOf(thisGuessArr[i]);
-      if (winArrDuex.includes(thisGuessArr[i])) {
+      } else if (winArrDuex.includes(thisGuessArr[i])) {
         closeMatches += 1;
         winArrDuex.splice(splicePos, 1, "emptyWin");
-      } else {
-        winArrDuex.splice(i, 1, "emptyWin");
       }
     }
     // to make sure the the matches return
