@@ -44,7 +44,7 @@ function Gameboard() {
 
   const colorsList = ["orange", "red", "green", "lightblue", "navy", "purple"];
 
-  const [activeColor, setActiveColor] = useState("");
+  const [activeColor, setActiveColor] = useState("empty");
 
   const selectPeg = color => {
     setActiveColor(color);
